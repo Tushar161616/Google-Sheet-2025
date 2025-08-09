@@ -1,0 +1,133 @@
+ *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    nav{
+        background-color: #F9FBFD;
+        width: 100vw;
+        height: 20vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #top-nav{
+        border: 2px solid black;
+        height: 60%;
+        display: flex;
+    
+    }
+
+    #bottom-nav{
+        border: 2px solid red;
+        height: 40%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #top-l{
+        border: 2px solid green;
+        width: 70%;
+    }
+
+     #top-r{
+        border: 2px solid yellow;
+        width: 30%;
+    }
+
+    #b-main{
+        border: 2px solid pink;
+        height: 35px;
+        width: 97%;
+        border-radius: 20px;
+    }
+
+    #root{
+        height: 100vh;
+        width: 100vw;
+        /* border: 2px solid red; */
+        overflow: scroll;
+    }
+
+   #head-section{
+    /* border: 2px solid black; */
+    display: flex;  
+    position: sticky;
+    top:0px;
+    right: 0px;
+    z-index: 100;
+    background-color: white;
+  
+  
+   }
+
+   .h-cell{
+    border: 1px solid #C4C7C5;
+    border-bottom: 2px solid #C4C7C5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    min-width: 100px;
+    /* padding: 0px 50px; */
+   }
+  
+   .f-cell{
+    min-width: 50px;
+    /* border: 2px solid black; */
+    height: 25px;
+    z-index: 1;
+    background-color: white;
+    position: sticky;
+    top:0px;
+    left: 0px;
+    border-right:4px solid rgb(218, 217, 217);
+    border-bottom:4px solid rgb(218, 217, 217);
+   } 
+   
+   #body{
+    /* border: 2px solid green; */
+    display: grid;
+    grid-template-columns: 50px auto;
+    height: 95vh;
+   }
+
+   #srN{
+    position: sticky;
+    left:0px;
+    background-color: white;
+    /* border: 2px solid green; */
+   }
+   .sr-cell{
+    width: 50px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #C4C7C5;
+    
+   }
+   .main-rows{
+     /* border: 2px solid green; */
+     height: 22px;
+     display: flex;
+   }
+
+   .main-cells{
+     border: 1px solid #C4C7C5;
+     width: 100px;
+     height: 100%;
+   }
+   .main-cells:hover{
+     border: 2px solid #1a73e8;
+   }
+
+
+
+  
+   
+   ::-webkit-scrollbar{
+    display: none;
+   }
