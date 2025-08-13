@@ -1,3 +1,5 @@
+
+
 const header = document.getElementById("head-section");
 const srno = document.getElementById("srN");
 const maincon = document.getElementById("main-container");
@@ -28,6 +30,7 @@ const maincon = document.getElementById("main-container");
     }
 
 
+
     for(let k = 1; k<=rows; k++){
         const rowelement = document.createElement("div");
         rowelement.className = "main-rows";
@@ -35,6 +38,9 @@ const maincon = document.getElementById("main-container");
         for(let i = 1; i <= cols; i++){
             const rowcell = document.createElement("div");
             rowcell.className = "main-cells";
+            rowcell.contentEditable = "true";
+            rowcell.id = String.fromCharCode(64+i)+k;
+            rowcell.addEventListener("focus",onfocusactive);
 
             rowelement.appendChild(rowcell);
            
@@ -42,3 +48,120 @@ const maincon = document.getElementById("main-container");
 
         maincon.appendChild(rowelement);
     }
+
+
+
+    // for adding functionlity to google sheets
+    const activeCellElement = document.getElementById("active-cell");
+    const frm = document.getElementById("b-main");
+    let activecellid = "";
+
+    frm.addEventListener("change", optionchange);
+
+    const defaultText = {
+            Fontfamily : "open Sans",
+            FontSize :  "14px",
+            Bold :   false,
+            Itellic : false,
+            Underline : false,
+            Align : "left",
+            TextColor : "#000000",
+            BgColor : "#ffffff"
+    }
+
+
+
+    
+    function optionchange(){
+        const options = {
+            Fontfamily : frm["font-family"].value,
+            FontSize : frm["font-size"].value,
+            Bold : frm["isBold"].checked,
+            Itellic : frm["isItellic"].checked,
+            Underline : frm["isUnderline"].checked,
+            Align : frm["align"].value,
+            TextColor : frm["text-color"],
+            BgColor : frm["bg-color"]
+            
+
+
+        }
+        // console.log(options);
+        
+        applyChange(options);
+        
+    }
+    
+    let state = {};
+    function applyChange(options){
+
+        // console.log(options);
+        
+
+        if(activeCellElement.innerText === "null"){
+            alert("Please Select a Cell");
+            return;
+
+        }
+        //   console.log(activeCellElement);
+          const activeC  = document.getElementById(activecellid);
+        //   console.log(activeC);
+          
+            
+        activeC.style.fontWeight = options.Bold ? "800" : "400";
+        activeC.style.fontStyle = options.Itellic ? "italic" : "normal";
+        activeC.style.textDecoration = options.Underline ? "underline" : "none";
+        activeC.style.textAlign = options.Align;
+        activeC.style.color = options.TextColor.value;
+        activeC.style.backgroundColor = options.BgColor.value;
+        activeC.style.fontFamily = options.Fontfamily;
+        activeC.style.fontSize = options.FontSize;
+
+        state[activecellid] = options;
+
+    }
+
+    function onfocusactive(event){
+      
+        activeCellElement.innerText = event.target.id;
+          activecellid = event.target.id;
+
+          if(state[activecellid]){
+             resetForm(state[activecellid]);
+
+          }else{
+            resetForm(defaultText);
+          }
+    }
+
+    function resetForm(style){
+        frm["font-size"].value = style.FontSize;
+        frm["isBold"].checked = style.Bold;
+        frm["isItellic"].checked = style.Itellic;
+        frm["isUnderline"].checked = style.Underline;
+        frm["align"].value = style.Align;
+        frm["text-color"].value = style.TextColor;
+        frm["bg-color"].value = style.BgColor;
+        frm["font-family"].value = style.Fontfamily;
+
+    }
+
+    const dwnload = document.getElementById("download-icon");
+
+    dwnload.addEventListener("click", exportData);
+
+    function exportData(){
+        const jsonData = JSON.stringify(state);
+        const blob = new Blob([jsonData],{type: "text/plain"});
+
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.download = "data.json";
+        link.href = url;
+        link.click();
+
+        
+    }
+
+    
+    

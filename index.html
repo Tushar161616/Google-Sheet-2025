@@ -3,24 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./Assets/Images/favicon-1.png" type="image/x-icon">
-    <title>Google Sheets</title>
+    <link rel="shortcut icon" href="./Assets/favicon.png" type="image/x-icon">
+    <title>Untitled spreadsheet</title>
     <link rel="stylesheet" href="style.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+
     <nav>
         <div id="top-nav">
 
-            <div id="top-l"></div>
+            <div id="top-l">
+                <!-- spredsheet logo -->
+                <div><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-sheets-icon.png"  width="50px" height="50px"></div>
 
-            <div id="top-r"></div>
+                <!-- spredsheet name  -->
+                <div>
+
+                    <div>
+                            <div style="font-size: large; font-weight: 500;">Untitled spreadsheet</div>
+                            <div><i class="fa-regular fa-star " style="color: #5a5e5d;"></i></div>
+                            <div><i class="fa-regular fa-folder-open" style="color: #5a5e5d;"></i></div>
+                            <div><i class="fa-regular fa-cloud" style="color: #5a5e5d;"></i></div>
+                    </div>
+
+                    <!-- sheet options -->
+                    <div>
+                        <div>File</div>
+                        <div>Edit</div>
+                        <div>View</div>
+                        <div>Insert</div>
+                        <div>Formate</div>
+                        <div>Data</div>
+                        <div>Tools</div>
+                        <div>Extensions</div>
+                        <div>Help</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="top-r">
+                <div><i class="fa-solid fa-clock-rotate-left fa-lg" style="color: #5a5e5d;"></i></div>
+                <div><img src="./Assets/Google-Docs-Comment-Icon.png" width="25px" height="18px"></div>
+                <div><i class="fa-solid fa-video fa-lg" style="color: #5a5e5d;"></i>  <i class="fa-solid fa-angle-down fa-xs" style="color: #5a5e5d;"></i></div>
+                <div><i class="fa-solid fa-lock fa-xs" style="color: #5a5e5d;"></i> Share <i class="fa-solid fa-angle-down fa-xs" style="color: #5a5e5d;"></i></div>
+                <div><img src="./Assets/Google-Gemini-Logo-Transparent-thumb.png"  width="25px" height="25px"></div>
+                <div style="background-color:#c4c5c4; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-user" style="color: #5a5e5d;"></i></div>
+            </div>
+
+        </div>
+
+        <div id="mid-nav">
+            <form id="b-main">
+                <div class="material-icons" style="color: #5a5e5d;">content_cut</div>
+                <div class="material-icons" style="color: #5a5e5d;">content_copy</div>
+                <div class="material-icons" style="color: #5a5e5d;">content_paste</div>
+
+                <span style="border-right: 1px solid #5a5e5d; height: 15px;"></span>
+
+                 <select id="font-selector" name="font-family" style="width: 100px; background-color: transparent; border: none;">
+                    <option value="open Sans">Open Sans</option>
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="Verdana, sans-serif">Verdana</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value='"Times New Roman", serif'>
+                      Times New Roman
+                    </option>
+                    <option value='"Courier New", monospace'>
+                      Courier New
+                    </option>
+                  </select>
+
+                   <select id="font-size-selector" name="font-size" style="width: 70px; background-color: transparent; border: none;">
+                    <option value="14px">14px</option>
+                    <option value="12px">12px</option>
+                    <option value="16px">16px</option>
+                    <option value="20px">20px</option>
+                    <option value="24px">24px</option>
+                    <option value="28px">28px</option>
+                    <option value="32px">32px</option>
+                  </select>
+
+
+
+
+                <span style="border-right: 1px solid #5a5e5d; height: 15px;"></span>
+
+                <div>
+                    <input type="checkbox" id="bold" name="isBold">
+                  <label for="bold" class="material-icons" style="color: #5a5e5d;">format_bold</label>
+                </div>
+
+
+                <div>
+                    <input type="checkbox" id="itelic" name="isItellic">
+                  <label for="itelic" class="material-icons" style="color: #5a5e5d;">format_italic</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="underline" name="isUnderline">
+                  <label for="underline" class="material-icons" style="color: #5a5e5d;">format_underlined</label>
+                </div>
+
+                
+               
+
+                <div>
+                    <input type="radio" value="left" id="a-left" name="align">
+                    <label for="a-left" class="material-icons" style="color: #5a5e5d;">format_align_left</label>
+
+                    <input type="radio" value="center" id="a-center"  name="align"> 
+                    <label for="a-center" class="material-icons" style="color: #5a5e5d;">format_align_center</label>
+
+                    <input type="radio" value="right" id="a-right"  name="align">
+                    <label for="a-right" class="material-icons" style="color: #5a5e5d;">format_align_right</label>
+
+                </div>
+
+                   
+                   <input type="color" id="i-color" name="text-color"  ></input>
+                   <label class="material-icons" for="i-color" style="color: #5a5e5d;">format_color_text</label>
+
+                   <input type="color" value="#ffffff"  id="b-color" name="bg-color"></input>
+                <label for="b-color" class="material-icons" style="color: #5a5e5d;">format_color_fill</label>
+
+
+
+                <label for="upload-icon" class="material-icons" style="color: #5a5e5d;">backup</label>
+                <input type="file" id="upload-icon" >
+
+                <div id="download-icon" class="material-icons" style="color: #5a5e5d;">cloud_download</div>
+
+
+                <span style="border-right: 1px solid #5a5e5d; height: 15px;"></span>
+
+                <div class="material-icons">search</div>
+                <input type="text" placeholder="Search" style="height: 25px; width: 300px; outline: none; border: none; padding:5px;">
+
+                
+              
+
+                
+
+
+
+
+            </form>
+
 
         </div>
 
         <div id="bottom-nav">
-            <div id="b-main"></div>
+            <div id="active-cell" style=" width: 100px; height: 25px; display: flex; justify-content:space-between; align-items: center; padding-left: 5px; font-size: small;">null <i class="fa-solid fa-angle-down fa-xs" style="color: #5a5e5d;"></i></div>
+            <span style="border-right: 1px solid #5a5e5d; height: 15px;"></span>
+            <div style="font-family:'Times New Roman', Times, serif; font-size: large;  width: 100px; height: 25px; color: #5a5e5d;">fx</div>
         </div>
 
     </nav>
@@ -40,13 +180,7 @@
 
             <div id="main-container">
                 <!-- This div for row all cell creted inside this. -->
-                 <!-- <div class="main-rows">
-                    <div class="main-cells"></div>
-                    <div class="main-cells"></div>
-                    <div class="main-cells"></div>
-                    <div class="main-cells"></div>
-                    <div class="main-cells"></div>
-                 </div> -->
+               
                 
 
 
@@ -56,9 +190,15 @@
         </div>
         
     </section>
+
+    <footer>
+        <div><i class="fa-solid fa-plus fa-sm" style="color: #000000;"></i></div>
+        <div>Sheet 1 <i class="fa-solid fa-angle-down fa-xs" style="color: #1a73e8;"></i></div>
+    </footer>
    
     
 
 <script src="./index.js"></script>
 </body>
 </html>
+
