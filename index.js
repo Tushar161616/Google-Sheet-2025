@@ -132,6 +132,7 @@ const maincon = document.getElementById("main-container");
           }else{
             resetForm(defaultText);
           }
+        //   copyid(activecellid);
     }
 
     function resetForm(style){
@@ -162,6 +163,99 @@ const maincon = document.getElementById("main-container");
 
         
     }
+
+//This code copy text on cilpboard all time
+
+    let cpyText = "";
+    let cutid = "";
+    let t = false;
+
+      maincon.addEventListener("input",(e)=>{
+        let val = e.target.innerText;
+
+        if(val !== ""){
+            cpyText =  navigator.clipboard.writeText(val)
+            t = true;
+            
+        }
+      
+        cpyText = val;
+
+        cutid = e.target.id;
+    });
+
+    //This code sends cell id 
+
+    let cid = "";
+    maincon.addEventListener("click",(e)=>{
+        // console.log(cpyText);
+        cid = e.target.id;  
+        
+    });
+
+
+
+    function copyCell(){
+        if(t === true){
+            alert("Text Copied!")
+
+        }else{
+            alert("Cell is Empty!")
+
+        }
+        
+
+    }
+
+    //This code for paste copied element
+    const pbtn = document.getElementById("paste");
+    pbtn.addEventListener("click",()=>{
+         let newcell = document.getElementById(`${cid}`);
+        newcell.innerHTML = cpyText;
+
+    })
+
+
+    //This code for cut text 
+    const  kut = document.getElementById("cutc");
+
+    kut.addEventListener("click",()=>{
+        // console.log(cutid);
+
+         let cutcell = document.getElementById(`${cutid}`);
+        cutcell.innerHTML = "";
+    })
+
+    
+    // let oldid = "";
+
+    // function copyid(id){
+    //     oldid = id;
+        
+    // }
+
+  
+    
+    // let copied = "";
+    
+    // function copyCell(oldid)
+    // {
+      
+        
+    //     const cdiv = document.getElementById(oldid);
+    //     console.log(cdiv);
+
+    //     copied = cdiv.innerText;
+      
+       
+    // }
+
+    // function pasteCell(id){
+    //     const cdiv = document.getElementById(id); 
+    //     console.log(cdiv);
+    // }
+
+    
 
     
     
